@@ -7,14 +7,14 @@ def buscar_coluna_por_nome(planilha, nome):
     # Busca o nome na primeira linha
 
     for coluna in df.columns:
-        if df[coluna][0] == nome:
+        if df[coluna][0].title() == nome.title():
             return coluna + 1  # Retorna o número da coluna (começando em 1)
         return None  # Retorna None caso o nome não seja encontrado
 
 # Exemplo de uso
 
-planilha = 'C:\ws-intellij\Python\Consumindo planilhas\Teste.ods'  # Substitua pelo caminho correto da sua planilha
-nome_buscado = 'Placa'
+planilha = 'C:\ws-intellij\Python\Python_Pandas\Teste.ods'
+nome_buscado = 'placa'
 coluna = buscar_coluna_por_nome(planilha, nome_buscado)
 
 if coluna is not None:
@@ -24,9 +24,9 @@ else:
 
 
 class veiculo:
-    def __init__(self, placa, renavam, chassi, uf):
-        self.placa = placa
-        self.renavam = renavam
-        self.chassi = chassi
-        self.uf = uf
+    def __init__(self, placa):
+        self._placa = placa.strip()
+
+
+
 
